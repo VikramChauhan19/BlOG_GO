@@ -1,0 +1,483 @@
+/* ======================
+   Design Tokens
+====================== */
+:root {
+  --primary: #020617;     /* Charcoal Black (navbar & footer) */
+  --accent: #6366f1;      /* Indigo Accent */
+  --surface: #ffffff;
+  --background: #f9fafb;
+  --text: #020617;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  --radius: 14px;
+  --shadow-sm: 0 4px 12px rgba(2, 6, 23, 0.08);
+  --shadow-md: 0 16px 36px rgba(2, 6, 23, 0.2);
+  --transition: all 0.25s ease;
+}
+
+.app-logo {
+  
+  width: auto;
+  border-radius: 10px;
+  transition: transform 0.25s ease;
+}
+
+.plus,
+.equals {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0.4rem; /* 👈 left & right space */
+}
+
+.app-logo:hover {
+  transform: scale(1.08);
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.plus {
+  animation: slideIn 0.6s ease forwards;
+}
+
+.equals {
+  animation: slideIn 0.6s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.tech-logo,
+.app-logo {
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.react-spin {
+  animation: spin 6s linear infinite;
+}
+
+
+
+/* ======================
+   Base
+====================== */
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+/* ======================
+   Header
+====================== */
+.header {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ======================
+   Navigation
+====================== */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.menu a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+
+.menu a:hover {
+  color: #d70808;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* ======================
+   Cards / Boxes
+====================== */
+.box {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  margin: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.box .title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+/* ======================
+   Image Box
+====================== */
+.img-box {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-box img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* ======================
+   Forms
+====================== */
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.18);
+}
+
+.error {
+  color: #dc2626;
+  font-size: 0.8rem;
+}
+
+/* ======================
+   Spinner
+====================== */
+.spinner {
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.spinner div {
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin: 0 6px;
+  animation: bounce 0.6s infinite alternate;
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(-10px);
+    opacity: 0.5;
+  }
+}
+
+/* ======================
+   Footer
+====================== */
+.footer {
+  background: var(--primary);
+  color: #e2e8f0;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer a {
+  color: #e2e8f0;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+/* ======================
+   Icons
+====================== */
+.fab {
+  margin-right: 0.6rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* footer styling stays the same */
+.footer {
+  background: var(--primary);
+  color: var(--text-inverse);
+}
+.about-page {
+  max-width: 1100px;
+}
+
+.about-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.about-subtitle {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: 0.6rem;
+}
+
+.about-section {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.about-section:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.about-section h4 {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.about-section p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.about-section ul {
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.about-section li {
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+}
+  
+
+.contact-page {
+  max-width: 1100px;
+}
+
+.contact-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.contact-subtitle {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: 0.6rem;
+}
+
+/* Cards */
+.contact-card,
+.contact-info-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.contact-card:hover,
+.contact-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card h4,
+.contact-info-card h4 {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.contact-social-text {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Social Grid */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 14px;
+  font-weight: 600;
+  color: var(--text);
+  background: #f9fafb;
+  transition: var(--transition);
+}
+
+.social-item i {
+  font-size: 1.4rem;
+}
+
+.social-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Platform colors */
+.social-item.linkedin i {
+  color: #0a66c2;
+}
+
+.social-item.github i {
+  color: #000000;
+}
+
+.social-item.twitter i {
+  color: #1da1f2;
+}
+
+.social-item.instagram i {
+  color: #e1306c;
+}
+
+/* Info card text */
+.contact-info-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.delete-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.delete-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.delete-text {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.delete-error {
+  color: #dc2626;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.delete-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.limit-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* number of lines */
+  line-clamp: 3;           /* standard property for compatibility */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.blog-image {
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+}
